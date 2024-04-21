@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+  getService:
+    image: get_service
+    build: ./get_service
+    networks:
+      - local
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+  postService:
+    image: post_service
+    build: ./post_service
+    networks:
+      - local
+    ports:
+      - "8002:8000"
+    restart: unless-stopped
+  database:
+    image: mongo
+    volumes:
+      - database:/data/db
+    networks:
+      - local
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+networks:
+  local:
+volumes:
+  database:
+
