@@ -2,7 +2,9 @@ FROM python:3.9.19-alpine3.18
 
 WORKDIR /code
 
-RUN pip3 install flask pymongo
+COPY requirements.txt /code
+
+RUN pip install -r requirements.txt
 
 COPY . .
 

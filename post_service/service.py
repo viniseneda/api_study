@@ -25,17 +25,17 @@ def verify_payload_new_product(dict):
 def make_message(message):
     return jsonify({"message": message})
 
-@app.route("/", methods=['POST'])
+@app.route("/api/produtos", methods=['POST'])
 def post_microservice():
     x =  request.json
     try:
         verify_payload_new_product(x)
         mycol.insert_one(x)
     except pymongo.errors.DuplicateKeyError:
-        return make_message("Produto ja existe"), 400
+        return make_message("Produto ja existe"), 403
     except Exception as e:
-        return make_message(str(e)), 400
-    return make_message("sucesso"), 200
+        return make_message(str(e)), 500
+    return make_message("Recurso criado"), 201
 
 if __name__ == "__main__":
     app.run(port=8000, host="0.0.0.0")
