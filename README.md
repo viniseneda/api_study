@@ -2,9 +2,9 @@
 ## intro e stack
 Depois de fazer um pequeno teste usando o API gateway da AWS junto com funções lambda (serverless), se optou pelo desenvolvimento do exercício usando docker-compose e o nginx como API gateway.
 
-Embora sua função principal seja a de um servidor http, load balancer e proxy reverso, o nginx é open source, extremamente configurável, podendo facilmente ser usado também como gateway para apis. Ele permite a distribuição de carga entre mais de um servidor, autenticação e autorização, limitação de fluxo e etc. Para casos simples como o deste exercicio, serve perfeitamente.
+Embora sua função principal seja a de um servidor http, load balancer e proxy reverso, o nginx é open source e extremamente configurável, podendo facilmente ser usado também como gateway para APIs. Ele permite a distribuição de carga entre mais de um servidor, autenticação e autorização, limitação de fluxo e etc. Para casos simples como o deste exercicio, serve perfeitamente.
 
-O desenvolvimento do exercício em docker também foi uma oportunidade para se estudar mais a fundo alguns dos conceitos por trás das apis e microserviços, já que o docker-compose permite recriar a relação entre vários serviços conectados dentro de uma rede privada.
+O desenvolvimento do exercício em docker também foi uma oportunidade para se estudar mais a fundo alguns dos conceitos por trás das apis e microserviços, já que o docker-compose permite recriar de forma fácil a relação entre vários serviços conectados através de uma rede privada.
 
 ## desenho da solução
 
@@ -14,7 +14,7 @@ A solução envolve múltiplos containers, um para cada serviço. são duas apli
 
 O nginx direciona as requisições para cada container de acordo com a rota da API que foi chamada. Os “microserviços” por sua vez se conectam ao banco de dados através da rede interna do compose. Desse modo os containers e o banco de dados não ficam acessíveis "externamente".
 
-A escolha do mongoDB como banco de dados se deu pela sua facilidade de configuração como container, e biblioteca acessível para se usar com python.
+A escolha do mongoDB como banco de dados se deu pela facilidade de configuração e pelo cliente/biblioteca acessível para se usar com python.
 
 ## segurança
 
