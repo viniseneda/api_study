@@ -18,7 +18,7 @@ A escolha do mongoDB como banco de dados se deu pela facilidade de configuraçã
 
 ## segurança
 
-A API usa https e também possui um sistema simples de autorização e autenticação através do uso de "API keys". Para se usar basta inserir um novo campo ‘apikey’ nos headers da requisição com o valor:
+A API usa https e também possui um sistema bem simples de autorização e autenticação através do uso de "API keys". Para se usar basta inserir um novo campo ‘apikey’ nos headers da requisição com o valor 'umachavesimples'.
 
 `"apikey":umachavesimples`
 
@@ -78,5 +78,5 @@ adiciona um produto ao banco de dados
 
 ## Uso
 
-Para usar basta rodar o comando `docker-compose up` e acessar a API através do `https://localhost/`. Também não se esquecer de usar a API key.
+Para usar basta ter o docker instalado e rodar o comando `docker-compose up` e acessar a API através do `https://localhost/`. Também não se esquecer de usar a API key.
 
